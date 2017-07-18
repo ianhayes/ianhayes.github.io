@@ -1,3 +1,22 @@
-html
-  color: blue
-  font-family: $base-font
+$micro-screen: 0px
+$tablet-screen: 768px
+$large-screen: 1280px
+
+$mobile: new-breakpoint(min-width $micro-screen max-width $tablet-screen)
+$tablet: new-breakpoint(min-width $tablet-screen max-width $large-screen)
+$desktop: new-breakpoint(min-width $large-screen)
+
+
+@mixin boxed-outer-container
+  +media($mobile)
+    max-width: 82em
+    padding-left: 1em
+    padding-right: 1em
+  +media($tablet)
+    max-width: 84em
+    padding-left: 2em
+    padding-right: 2em
+  +media($desktop)
+    max-width: 86em
+    padding-left: 3em
+    padding-right: 3em

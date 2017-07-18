@@ -1,0 +1,31 @@
+@function calcRem($originalSize)
+  $finalSize: $originalSize / 16px
+  @return #{$finalSize}rem
+
+@mixin font($size, $height, $spacing: 0px)
+  font-size: calcRem($size)
+  line-height: calcRem($height)
+  letter-spacing: calcRem($spacing)
+
+
+html
+  +media($mobile)
+    font-size: 12px
+  +media($tablet)
+    font-size: 14px
+  +media($desktop)
+    font-size: 16px
+  font-family: $base-font
+
+h1
+  +font(48px, 73px)
+
+h2
+  +font(42px, 64px)
+
+p
+  +font(24px, 36px)
+
+h1, h2, p
+  color: $charcoal
+  font-weight: $font-light
